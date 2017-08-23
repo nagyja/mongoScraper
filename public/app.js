@@ -84,8 +84,10 @@ $(document).on("click", "#scrapeButton", function() {
 
   $.ajax({
     method: "GET",
-    url: "/scrape"
-  }).done(function(data){
-    window.location.href = "/";
-  });
+    url: "/scrape",
+    success: function() {
+      window.location.href = "/";
+  }});
+
+
 });
