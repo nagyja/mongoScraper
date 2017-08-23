@@ -1,5 +1,6 @@
 body {
-   background-image: url("/assets/images/searchBackground.jpg");
+   /*background-image: url("/assets/images/searchBackground.jpg");*/
+   background: red;
    background-size: cover;
    background-repeat: no-repeat;
 }
