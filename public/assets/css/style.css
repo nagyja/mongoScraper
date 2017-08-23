@@ -57,3 +57,14 @@ textarea {
 main {
   flex: 1 0 auto;
 }
+
+.intro {
+  border-radius: 10px;
+  padding-bottom: 15px;
+  margin-top: 5px;
+}
+
+.waves-effect {
+  border-radius: 10px;
+  : 3px;
+}
