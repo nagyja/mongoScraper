@@ -11,9 +11,11 @@ $(document).on("click", ".save", function() {
   var thisId = $(this).attr("id");
   $.ajax({
     method: "POST",
-    url: "/saved" +thisId
+    url: "/saved" +thisId,
+    async: false
   }).done(function(data){
     console.log("Article Saved "+ data);
+    location.reload();
   });
 });
 

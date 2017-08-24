@@ -112,7 +112,8 @@ app.get("/scrape", function(req, res) {
     });
   });
   // Tell the browser that we finished scraping the text
-  res.redirect("/");
+  // res.redirect("/");
+  res.send("test");
 });
 
 // This will get the articles we scraped from the mongoDB
