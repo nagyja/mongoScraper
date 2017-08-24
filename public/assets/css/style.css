@@ -1,7 +1,10 @@
 body {
-   background-image: url("/assets/images/searchBackground.jpg");
-   background-size: cover;
-   background-repeat: no-repeat;
+  background-image: url("/assets/images/searchBackground.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 #wrapper {
@@ -31,7 +34,6 @@ body {
   width: 39%;
   border: 1px solid white;
   background: white;
-
 }
 
 
@@ -39,7 +41,6 @@ body {
 textarea, input {
   display: block;
   width: 100%;
-
 }
 
 input {
@@ -51,4 +52,19 @@ input {
 textarea {
   height: 200px;
   font-size: 18px;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.intro {
+  border-radius: 10px;
+  padding-bottom: 15px;
+  margin-top: 5px;
+}
+
+.waves-effect {
+  border-radius: 10px;
+  : 3px;
 }
