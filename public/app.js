@@ -1,9 +1,21 @@
+$(document).ready(function() {
+
+  $(".button-collapse").sideNav();
+
+  $("#scraper").on("click", function() {
+    $("#heading").hide();
+    $("#nav-mobile").append('<li><a href="/scrape"><i class="fa fa-book" aria-hidden="true"></i> Scrape Articles</a></li>');
+  });
+
+});
+
 // Grab the articles as a json
 $.getJSON("/articles", function(data) {
   // For each one
   for (var i = 0; i < data.length; i++) {
     // Display the apropos information on the page
-    $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title +"<button class='save' id='"+data[i]._id+"'>Save Article</button>"+ "<br />" + data[i].link + "</p>");
+    $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "</p>";
+<button class='save waves-effect waves-light btn blue' id='"+data[i]._id+"<i class='material-icons left></i> Save Article</button>"+ "<br />" + data[i].link + "</p>");
   }
 });
 
