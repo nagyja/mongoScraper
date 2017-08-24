@@ -14,8 +14,13 @@ $.getJSON("/articles", function(data) {
   // For each one
   for (var i = 0; i < data.length; i++) {
     // Display the apropos information on the page
-    $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "</p>";
-<button class='save waves-effect waves-light btn blue' id='"+data[i]._id+"<i class='material-icons left></i> Save Article</button>"+ "<br />" + data[i].link + "</p>");
+    $("#articles").append("<div class = 'col s10'>"+
+        "<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link +
+        "</p>" +
+      "</div>"+
+      "<div class = 'col s2'>"+
+         "<button class='save waves-effect waves-light btn blue' id='"+data[i]._id+"'>Save Article</button>" +
+       "</div>" );
   }
 });
 

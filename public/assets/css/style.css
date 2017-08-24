@@ -13,9 +13,8 @@ main {
   flex: 1 0 auto;
 }
 
-#wrapper > .save {
-  /*opacity: 1;*/
-  right: 20%;
+.save {
+  margin-top: 12%;
 }
 
 h1 {
@@ -80,7 +79,7 @@ nav {
 }
 
 #wrapper > h2 {
-  padding-left: 3%;
+  padding-left: 4%;
 }
 
 #articles {
@@ -137,4 +136,5 @@ textarea {
 nav .button-collapse i {
     height: 100px;
     line-height: 100px;
+    color: black;
 }
