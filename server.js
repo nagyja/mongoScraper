@@ -74,8 +74,23 @@ app.post("/saved:id", function(req, res){
       });
     }
   });
-
 });
+
+// Find all the saved articles
+
+app.get("/save", function(req, res) {
+  Saved.find({}, function(error, doc) {
+      // Send any errors to the browser
+      if (error) {
+        res.send(error);
+      }
+      // Or send the doc to the browser
+      else {
+        res.send(doc);
+      }
+    });
+  });
+
 
 // A GET request to scrape the echojs website
 app.get("/scrape", function(req, res) {
