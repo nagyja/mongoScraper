@@ -16,5 +16,14 @@
     "mongoose": "^4.4.6",
     "morgan": "^1.7.0",
     "request": "^2.69.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nagyja/mongoScraper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nagyja/mongoScraper/issues"
+  },
+  "homepage": "https://github.com/nagyja/mongoScraper#readme"
 }
