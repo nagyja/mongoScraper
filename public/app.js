@@ -96,3 +96,15 @@ $(document).on("click", "#savenote", function() {
   $("#titleinput").val("");
   $("#bodyinput").val("");
 });
+
+$(document).on("click", "#scrapeButton", function() {
+
+  $.ajax({
+    method: "GET",
+    url: "/scrape",
+    success: function() {
+      window.location.href = "/";
+  }});
+
+
+});
