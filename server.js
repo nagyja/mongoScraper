@@ -46,12 +46,13 @@ db.once("open", function() {
 // ======
 
 app.post("/saved:id", function(req, res) {
+
     // Create a new saved and pass the req.body to the entry
     var newSaved = new Saved(req.body);
 
     // And save the new note the db
     newSaved.save(function(error, doc) {
-        // Log any errors
+
         if (error) {
             console.log(error // Otherwise
             );
@@ -74,6 +75,22 @@ app.post("/saved:id", function(req, res) {
     });
 
 });
+
+// app.get("/", function(req, res) {
+//   Article.find({}, function(error, doc) {
+//     // Log any errors
+//     if (error) {
+//       console.log(error // Or send the doc to the browser as a json object
+//       );
+//     } else {
+//       console.log(doc);
+//       res.json(doc);
+//     }
+//   });
+// });
+
+// A GET request to scrape the echojs website
+
 
 
 
@@ -181,6 +198,7 @@ app.post("/savedArticles/:id", function(req, res) {
 
     // And save the new note the db
     newNote.save(function(error, doc) {
+
         // Log any errors
         if (error) {
             console.log(error // Otherwise

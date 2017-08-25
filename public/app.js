@@ -1,4 +1,18 @@
+$(document).ready(function() {
+
+  $(".button-collapse").sideNav();
+
+  $("#scrapeButton").on("click", function() {
+    $("#heading").hide();
+    $("#nav-mobile").append('<li><a href="/scrape"><i class="fa fa-book" aria-hidden="true"></i> Scrape Articles</a></li>');
+  });
+
+  $('.modal').modal();
+
+});
+
 // Grab the articles as a json
+
 $.getJSON("/savedArticles", function(data) {
   // For each one
   for (var i = 0; i < data.length; i++) {
@@ -18,10 +32,12 @@ $(document).on("click", ".save", function() {
   var thisId = $(this).attr("id");
   $.ajax({
     method: "POST",
-    url: "/saved" +thisId,
-  }).done(function(data){
-    console.log("Article Saved "+ data);
-    location.reload();
+
+
+    url: "/saved" + thisId
+  }).done(function(data) {
+    console.log("Article Saved " + data);
+
   });
 });
 
@@ -38,26 +54,26 @@ $(document).on("click", ".note", function() {
     method: "GET",
     url: "/savedArticles/" + thisId
   })
-    // With that done, add the note information to the page
+  // With that done, add the note information to the page
     .done(function(data) {
-      console.log(data);
-      // The title of the article
-      $("#notes").append("<h2>" + data.title + "</h2>");
-      // An input to enter a new title
-      $("#notes").append("<input id='titleinput' name='title' placeholder='Title' >");
-      // A textarea to add a new note body
-      $("#notes").append("<textarea id='bodyinput' placeholder='Add note here' name='body'></textarea>");
-      // A button to submit a new note, with the id of the article saved to it
-      $("#notes").append("<button data-id='" + data._id + "' id='savenote'>Save Note</button>");
+    console.log(data);
+    // The title of the article
+    $("#notes").append("<h2>" + data.title + "</h2>");
+    // An input to enter a new title
+    $("#notes").append("<input id='titleinput' name='title' placeholder='Title' >");
+    // A textarea to add a new note body
+    $("#notes").append("<textarea id='bodyinput' placeholder='Add note here' name='body'></textarea>");
+    // A button to submit a new note, with the id of the article saved to it
+    $("#notes").append("<button data-id='" + data._id + "' id='savenote'>Save Note</button>");
 
-      // If there's a note in the article
-      if (data.note) {
-        // Place the title of the note in the title input
-        $("#titleinput").val(data.note.title);
-        // Place the body of the note in the body textarea
-        $("#bodyinput").val(data.note.body);
-      }
-    });
+    // If there's a note in the article
+    if (data.note) {
+      // Place the title of the note in the title input
+      $("#titleinput").val(data.note.title);
+      // Place the body of the note in the body textarea
+      $("#bodyinput").val(data.note.body);
+    }
+  });
 });
 
 // When you click the savenote button
@@ -76,13 +92,13 @@ $(document).on("click", "#savenote", function() {
       body: $("#bodyinput").val()
     }
   })
-    // With that done
+  // With that done
     .done(function(data) {
-      // Log the response
-      console.log(data);
-      // Empty the notes section
-      $("#notes").empty();
-    });
+    // Log the response
+    console.log(data);
+    // Empty the notes section
+    $("#notes").empty();
+  });
 
   // Also, remove the values entered in the input and textarea for note entry
   $("#titleinput").val("");
@@ -96,8 +112,8 @@ $(document).on("click", "#scrapeButton", function() {
     url: "/scrape",
     success: function() {
       window.location.href = "/";
-  }});
-
+    }
+  });
 
 });
 
