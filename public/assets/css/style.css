@@ -68,3 +68,13 @@ main {
   border-radius: 10px;
   : 3px;
 }
+
+.row .col.s4 {
+  padding-top: 23px;
+  padding-left: 25px;
+}
+
+p {
+  word-break: break-all;
+  white-space: normal;
+}
