@@ -156,7 +156,8 @@ app.get("/saved", function(req, res) {
 });
 
 // Grab an article by it's ObjectId
-app.get("/articles/:id", function(req, res) {
+app.get("/savedArticles/:id", function(req, res) {
+    console.log("Req.params.id: "+req.params.id);
     // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
     Article.findOne({ "_id": req.params.id })
         // ..and populate all of the notes associated with it
@@ -174,7 +175,7 @@ app.get("/articles/:id", function(req, res) {
 });
 
 // Create a new note or replace an existing note
-app.post("/articles/:id", function(req, res) {
+app.post("/savedArticles/:id", function(req, res) {
     // Create a new note and pass the req.body to the entry
     var newNote = new Note(req.body);
 
