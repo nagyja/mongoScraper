@@ -7,12 +7,18 @@ $.getJSON("/articles", function(data) {
   }
 });
 
+$.getJSON("/saved", function(data){
+
+  for (var i=0; i<data.length; i++){
+    $("#savedArticles").append("<p data-id='" + data[i]._id + "'>" + data[i].title +"<button class='note' id='"+data[i]._id+"'>Note</button>"+ "<br />" + data[i].link + "</p>");
+  }
+});
+
 $(document).on("click", ".save", function() {
   var thisId = $(this).attr("id");
   $.ajax({
     method: "POST",
     url: "/saved" +thisId,
-    async: false
   }).done(function(data){
     console.log("Article Saved "+ data);
     location.reload();
@@ -20,7 +26,7 @@ $(document).on("click", ".save", function() {
 });
 
 // Whenever someone clicks a p tag
-$(document).on("click", "p", function() {
+$(document).on("click", ".note", function() {
   // Empty the notes from the note section
   $("#notes").empty();
   // Save the id from the p tag
@@ -93,3 +99,15 @@ $(document).on("click", "#scrapeButton", function() {
 
 
 });
+
+$(document).on("click", "#savedArticlesButton", function() {
+
+  $.ajax({
+    method: "GET",
+    url: "/saved",
+    success: function() {
+      window.location.href = "/savedArticles";
+}
+});
+});
+
