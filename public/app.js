@@ -13,6 +13,7 @@ $(document).ready(function() {
 
 // Grab the articles as a json
 $.getJSON("/articles", function(data) {
+
   if (data.length !== 0) {
     // For each one
     for (var i = 0; i < data.length; i++) {
@@ -23,6 +24,7 @@ $.getJSON("/articles", function(data) {
   } else {
     var noArticles =
     $("#articles").append("<h3>UH OH! Looks like we don't have and articles.</h3>");
+
   }
 });
 

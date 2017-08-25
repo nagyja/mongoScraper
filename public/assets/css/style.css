@@ -140,3 +140,13 @@ nav .button-collapse i {
     line-height: 100px;
     color: black;
 }
+
+.row .col.s4 {
+  padding-top: 23px;
+  padding-left: 25px;
+}
+
+p {
+  word-break: break-all;
+  white-space: normal;
+}
