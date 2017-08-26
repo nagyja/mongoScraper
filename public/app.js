@@ -12,7 +12,7 @@ $(document).ready(function() {
 });
 
 // Grab the articles as a json
-$.getJSON("/articles", function(data) {
+$.getJSON("/savedArticles", function(data) {
   if (data.length !== 0) {
     // For each one
     for (var i = 0; i < data.length; i++) {
@@ -26,27 +26,36 @@ $.getJSON("/articles", function(data) {
   }
 });
 
+$.getJSON("/saved", function(data){
+
+  for (var i=0; i<data.length; i++){
+    $("#savedArticles").append("<p data-id='" + data[i]._id + "'>" + data[i].title +"<button class='note' id='"+data[i]._id+"'>Note</button>"+ "<br />" + data[i].link + "</p>");
+  }
+});
+
 $(document).on("click", ".save", function() {
   var thisId = $(this).attr("id");
   $.ajax({
     method: "POST",
-    url: "/saved" + thisId
-  }).done(function(data) {
-    console.log("Article Saved " + data);
+    url: "/saved" +thisId,
+  }).done(function(data){
+    console.log("Article Saved "+ data);
+    location.reload();
   });
 });
 
 // Whenever someone clicks a p tag
-$(document).on("click", "p", function() {
+$(document).on("click", ".note", function() {
   // Empty the notes from the note section
   $("#notes").empty();
   // Save the id from the p tag
-  var thisId = $(this).attr("data-id");
+  var thisId = $(this).attr("id");
+  console.log("id = " + thisId);
 
   // Now make an ajax call for the Article
   $.ajax({
     method: "GET",
-    url: "/articles/" + thisId
+    url: "/savedArticles/" + thisId
   })
   // With that done, add the note information to the page
     .done(function(data) {
@@ -78,7 +87,7 @@ $(document).on("click", "#savenote", function() {
   // Run a POST request to change the note, using what's entered in the inputs
   $.ajax({
     method: "POST",
-    url: "/articles/" + thisId,
+    url: "/savedArticles/" + thisId,
     data: {
       // Value taken from title input
       title: $("#titleinput").val(),
@@ -109,4 +118,15 @@ $(document).on("click", "#scrapeButton", function() {
     }
   });
 
+});
+
+$(document).on("click", "#savedArticlesButton", function() {
+
+  $.ajax({
+    method: "GET",
+    url: "/saved",
+    success: function() {
+      window.location.href = "/savedArticles";
+}
+});
 });
