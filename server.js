@@ -18,6 +18,8 @@ var path = require("path");
 // Set mongoose to leverage built in JavaScript ES6 Promises
 mongoose.Promise = Promise;
 
+var port = process.env.PORT || 3000;
+
 // Initialize Express
 var app = express();
 
@@ -208,6 +210,6 @@ app.get("/savedArticles", function(req,res){
 });
 
 // Listen on port 3000
-app.listen(3000, function() {
+app.listen(port, function() {
     console.log("App running on port 3000 !");
 });
