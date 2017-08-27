@@ -18,6 +18,10 @@ main {
   margin-top: 12%;
 }
 
+.note {
+  margin-top: 10%;
+}
+
 h1 {
   margin: 5.1rem 0 2.68rem 0;
   font-weight: 600;
@@ -85,6 +89,15 @@ nav {
 }
 
 #articles {
+  display: inline-block;
+  overflow: auto;
+  width: 100%;
+  height: auto;
+  border: 1px solid white;
+  padding: 3%;
+}
+
+#savedArticles {
   display: inline-block;
   overflow: auto;
   width: 100%;

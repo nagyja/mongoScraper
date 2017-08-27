@@ -29,7 +29,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static("public"));
 
 // Database configuration with mongoose
-mongoose.connect("mongodb://localhost/week18day3mongoose");
+mongoose.connect("mongodb://localhost/mongoScraper");
 var db = mongoose.connection;
 
 // Show any mongoose errors
@@ -68,6 +68,7 @@ app.post("/saved:id", function(req, res) {
                     } else {
                         // Or send the document to the browser
                         console.log("saved the article");
+                        res.send(doc);
                     }
                 });
         }
@@ -134,7 +135,8 @@ app.get("/scrape", function(req, res) {
                     );
                 } else {
 
-                    console.log(doc);
+                    // console.log(doc);
+                    // res.send(doc);
 
                 }
             });
@@ -148,7 +150,7 @@ app.get("/scrape", function(req, res) {
             // res.redirect("/");
 
         });
-            res.send("test");
+
 
     });
 });
