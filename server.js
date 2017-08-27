@@ -135,7 +135,7 @@ app.get("/scrape", function(req, res) {
                     );
                 } else {
 
-                    // res.json(doc);
+                    console.log(doc);
 
                 }
             });
@@ -150,7 +150,7 @@ app.get("/scrape", function(req, res) {
 
         });
 
-
+        res.send("test");
     });
 });
 

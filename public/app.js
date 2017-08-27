@@ -7,9 +7,12 @@ $(document).ready(function() {
     $.ajax({
       method: "GET",
       url: "/scrape",
-      success: function() {
+      // success: function() {
+      //   window.location.href = "/";
+      // }
+    }).done(function() {
+      console.log("hello");
         window.location.href = "/";
-      }
     });
 
   });
