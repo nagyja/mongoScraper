@@ -32,11 +32,6 @@ app.use(express.static("public"));
 
 var port = process.env.PORT || 3000;
 
-var databaseUrl = "mongodb://localhost/mongoScraper";
-
-if(process.env.MONGODB_URI){
-    mongoose.connect(process.env.MONGODB_URI);
-}else{
 // Database configuration with mongoose
 var databaseUri = "mongodb://localhost/mongoScraper";
 
