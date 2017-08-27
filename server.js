@@ -135,8 +135,7 @@ app.get("/scrape", function(req, res) {
                     );
                 } else {
 
-                    // console.log(doc);
-                    // res.send(doc);
+                    // res.json(doc);
 
                 }
             });

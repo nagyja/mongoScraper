@@ -20,7 +20,6 @@ $(document).ready(function() {
 
 // Grab the articles as a json
 $.getJSON("/articles", function(data) {
-  console.log("this was hit!!!!");
   if (data.length !== 0) {
     // $("#heading").hide();
     // $("#nav-mobile").append('<li><a href="/scrape"><i class="fa fa-book" aria-hidden="true"></i> Scrape Articles</a></li>');
@@ -37,7 +36,6 @@ $.getJSON("/articles", function(data) {
 
 // Grab the articles as a json
 $.getJSON("/saved", function(data) {
-  console.log("this was hit");
   if (data.length !== 0) {
     // For each one
     for (var i = 0; i < data.length; i++) {
@@ -46,7 +44,7 @@ $.getJSON("/saved", function(data) {
         "<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>" + "</div>" + "<div class = 'col s3'>" + "<a data-id='" + data[i]._id + "' class='note waves-effect waves-light btn modal-trigger center blue' id='" + data[i]._id + "' href='#modal" + data[i]._id + "'>Add a Note</a>" + "<div id='modal" + data[i]._id + "' class='modal'>" + "<div class='modal-content'>" + "<h4>Notes For Article: " + data[i].title + "<h4>" + "<div class='row'>" + "<form class='col s12'>" + "<div class='row'>" + "<div class='input-field col s12'>" + "<textarea id='titleInput' name='title' class='materialize-textarea'></textarea>" + "<label for='titleInput'>Title</label>" + "</div>" + "<div class='input-field col s12'>" + "<textarea id='bodyInput' name='body' class='materialize-textarea'></textarea>" + "<label for='bodyInput'>Enter Note</label>" + "</div>" + "</div>" + "</form>" + "</div>" + "</div>" + "<div class='modal-footer'>" + "<a data-id='" + data[i]._id + "' href='#!' id='savenote' class='modal-action modal-close waves-effect waves-green btn-flat'>Save Note</a>" + "</div>" + "</div>");
     }
   } else {
-    var noArticles = $("#articles").append("<h3>UH OH! Looks like we don't have any articles.</h3>");
+    var noArticles = $("#savedArticles").append("<h3>UH OH! Looks like we don't have any articles.</h3>");
   }
 });
 
