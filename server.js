@@ -28,13 +28,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Make public a static dir
 app.use(express.static("public"));
 
+var port = process.env.PORT || 3000;
+
 var databaseUrl = "mongodb://localhost/mongoScraper";
 
 if(process.env.MONGODB_URI){
     mongoose.connect(process.env.MONGODB_URI);
 }else{
 // Database configuration with mongoose
-mongoose.connect("mongodb://localhost/mongoScraper");
+mongoose.connect(databaseUrl);
 }
 var db = mongoose.connection;
 
@@ -244,6 +246,6 @@ app.get("/savedArticles", function(req,res){
 });
 
 // Listen on port 3000
-app.listen(3000, function() {
+app.listen(port, function() {
     console.log("App running on port 3000 !");
 });
